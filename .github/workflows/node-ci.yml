@@ -7,6 +7,8 @@ on:
 jobs:
     build-and-test:
         runs-on: ubuntu-latest
+        env:
+            NODE_ENV: ${{ secrets.NODE_ENV }}
         steps:
           - name: Clonar repositorio
             uses: actions/checkout@v3
@@ -19,5 +21,3 @@ jobs:
             run: npm install
           - name: Ejecutar pruebas
             run: npm test
-          - name: Mostrar entorno
-            run: echo "Entorno actual: $NODE_ENV"
